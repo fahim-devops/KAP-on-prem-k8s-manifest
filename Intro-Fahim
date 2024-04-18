@@ -1,0 +1,32 @@
+Hi , Hope you are doing well. Let me give my brief into. 
+
+Fahim here DevOps guy. i have 5 + year of experience in devops and from last 1 year I'm working with Tkxel.
+
+I also have Associate Level Certification of     solutions architect 
+
+I have some extensive experience with  multiple tools of devops. Like CI/CD pipelines for deployments , 
+Docker, kuberentes for micro services and orchisteration, Ansible and terrform for IAC and graylogs, 
+promethous for monitoring and some multiple  AWS services. 
+In my routine task 
+i am working on AWS services, managing multiple EC2 instances, codepipeline EKS and EECS clusters of multiple envs, S3, route53, cloudfronnt, RDS DBs etc. 
+and also giving support to developer in the troubleshooting things. 
+
+
+What is you biggest achievement?
+Sure, i did automate all the manually deployment using Gitlab_ci jenkins and github action. 
+It was the biggest achivement becasue before this client was struggling to get the updated vesion of 
+their app and their was also no records for code commit. So what i did i made the CI/CD pipeline which 
+controlled the build so if there was any issue in code then build should not be passed this way we can verfiy the error as well i also used lint for error tracking 
+
+
+Event ID: CRO-0DCN-cMPm-v1vZO
+\
+
+CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+
+CREATE DATABASE sosweb;
+
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+
+sudo apt install phpmyadmin php7.4-mbstring php7.4-zip php7.4-gd php7.4-json php7.4-curl
+

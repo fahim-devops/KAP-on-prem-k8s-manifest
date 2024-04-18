@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: splash-kaptifi-db
+    app.kubernetes.io/instance: splash-kaptifi-db-instance
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/component: backend
+    app.kubernetes.io/managed-by: kubectl
+  name: splash-kaptifi-db
+spec:
+  type: ClusterIP
+  selector:
+    app: splash-kaptifi-db
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432

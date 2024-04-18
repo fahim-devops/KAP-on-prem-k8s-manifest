@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kaptifi-pv-claim
+spec:
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-storage 
+  accessModes:
+    - ReadWriteOnce

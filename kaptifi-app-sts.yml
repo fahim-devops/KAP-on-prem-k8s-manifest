@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/name: splash-kaptifi
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: splash-kaptifi
+spec:
+  replicas: 1
+  serviceName: splash-kaptifi
+  selector:
+    matchLabels:
+      app: splash-kaptifi
+  template:
+    metadata:
+      labels:
+        app: splash-kaptifi
+    spec:
+      containers:
+        - image: shafay07/splash-kaptifi:latest-2
+          imagePullPolicy: Always
+          name: splash-kaptifi
+          command: ["/bin/sh"]
+          args: ["-c", "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"]
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: kaptifi-app-secret
+          volumeMounts:
+            - mountPath: "/app/media_cdn/"
+              name: kaptifi-db-pv-storage
+      volumes:
+        - name: kaptifi-db-pv-storage
+          persistentVolumeClaim:
+            claimName: kaptifi-pv-claim
+      imagePullSecrets:
+        - name: regcred

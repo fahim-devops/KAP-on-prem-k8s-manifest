@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: splash-kaptifi-db
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: splash-kaptifi-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: splash-kaptifi-db
+  template:
+    metadata:
+      labels:
+        app: splash-kaptifi-db
+    spec:
+      containers:
+        - image: postgres:12
+          imagePullPolicy: Always
+          name: splash-kaptifi-db
+          envFrom:
+            - secretRef:
+                name: kaptifi-db-secret
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data/"
+              name: kaptifi-db-pv-storage
+      volumes:
+        - name: kaptifi-db-pv-storage
+          persistentVolumeClaim:
+            claimName: kaptifi-pv-claim-db

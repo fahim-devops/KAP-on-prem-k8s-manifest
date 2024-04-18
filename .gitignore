@@ -1,0 +1,4 @@
+kaptifi-app-configmap.yml
+kaptifi-app-secret.yml
+kaptifi-db-pod-secrets-.yml
+kaptifi-db-secret-.yml
